@@ -80,7 +80,7 @@
             overflow: hidden;
         }
 
-        /* STRICT MOBILE FRAME CONTAINER (Locked aspect ratio, max-width: 480px) */
+        /* STRICT MOBILE FRAME CONTAINER */
         .mobile-app-frame {
             position: relative;
             width: 100%;
@@ -94,17 +94,10 @@
             flex-direction: column;
         }
 
-        /* Custom Scrollbar for Mobile View */
-        .mobile-scroll-container::-webkit-scrollbar {
-            width: 4px;
-        }
-        .mobile-scroll-container::-webkit-scrollbar-track {
-            background: rgba(253, 226, 228, 0.3);
-        }
-        .mobile-scroll-container::-webkit-scrollbar-thumb {
-            background: #C5838C;
-            border-radius: 999px;
-        }
+        /* Custom Scrollbar */
+        .mobile-scroll-container::-webkit-scrollbar { width: 4px; }
+        .mobile-scroll-container::-webkit-scrollbar-track { background: rgba(253, 226, 228, 0.3); }
+        .mobile-scroll-container::-webkit-scrollbar-thumb { background: #C5838C; border-radius: 999px; }
 
         /* Glassmorphism Cards */
         .glass-card {
@@ -129,7 +122,6 @@
         /* ENVELOPE DESIGN & STRICT ANIMATION TIMELINE SYSTEM   */
         /* ==================================================== */
 
-        /* Custom Envelope Texture (Direct image override support) */
         .envelope-texture {
             background-image: url('download.png');
             background-size: cover;
@@ -146,10 +138,9 @@
             perspective: 1200px;
             cursor: pointer;
             overflow: hidden;
-            transition: opacity 0.8s ease-out 4.2s, visibility 0.8s ease-out 4.2s;
+            transition: opacity 0.8s ease-out 4.5s, visibility 0.8s ease-out 4.5s;
         }
 
-        /* Envelope Outer Container */
         .envelope-container {
             position: relative;
             width: 100%;
@@ -158,7 +149,6 @@
             overflow: hidden;
         }
 
-        /* 1. Envelope Back Layer (Interior Lining) */
         .envelope-back {
             position: absolute;
             inset: 0;
@@ -172,15 +162,11 @@
 
         .envelope-lining-pattern {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
+            top: 0; left: 0; width: 100%; height: 50%;
             background: radial-gradient(circle at 50% 40%, rgba(247, 231, 206, 0.18) 0%, transparent 70%);
             border-bottom: 1px dashed rgba(247, 231, 206, 0.25);
         }
 
-        /* 2. Inner Letter White Card (Positioned neatly inside) */
         .invitation-card-preview {
             position: absolute;
             top: 18%;
@@ -192,8 +178,8 @@
             z-index: 15;
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
             transform: translateY(0%);
-            /* Step 3: Slide out after 1s flap open + 2s pause = 3s delay! */
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 3.0s;
+            /* کاغەزەکە ٣.٥ چرکە دەوەستێت پێش ئەوەی بێتە دەرەوە */
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 3.5s;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -210,152 +196,82 @@
             align-items: center;
         }
 
-        /* 3. Envelope Front Folded Pockets */
         .envelope-front {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 60%;
+            bottom: 0; left: 0; width: 100%; height: 60%;
             z-index: 20;
             pointer-events: none;
         }
 
         .envelope-pocket-left {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(45deg, #D48C97 0%, #DC9BA5 100%);
-            background-image: linear-gradient(45deg, #D48C97 0%, #DC9BA5 100%), repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 4px);
             clip-path: polygon(0 0, 52% 50%, 0 100%);
             filter: drop-shadow(5px 0 10px rgba(90, 30, 40, 0.22));
         }
 
         .envelope-pocket-right {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; bottom: 0; right: 0; width: 100%; height: 100%;
             background: linear-gradient(-45deg, #CF8591 0%, #D8949E 100%);
-            background-image: linear-gradient(-45deg, #CF8591 0%, #D8949E 100%), repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 4px);
             clip-path: polygon(100% 0, 48% 50%, 100% 100%);
             filter: drop-shadow(-5px 0 10px rgba(90, 30, 40, 0.22));
         }
 
         .envelope-pocket-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(0deg, #D68F99 0%, #DF9EA8 100%);
             clip-path: polygon(0 100%, 50% 45%, 100% 100%);
             filter: drop-shadow(0 -8px 16px rgba(95, 35, 45, 0.32));
         }
 
-        /* 4. Distinct Triangular Top Flap */
         .envelope-top-flap {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 52%;
+            top: 0; left: 0; width: 100%; height: 52%;
             background: linear-gradient(180deg, #EFC0C7 0%, #D8959F 85%, #CC848F 100%);
-            background-image: linear-gradient(180deg, #EFC0C7 0%, #D8959F 85%, #CC848F 100%), repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 4px);
             clip-path: polygon(0 0, 100% 0, 50% 100%);
             transform-origin: top center;
-            /* Step 1: Flap opens smoothly over 1s */
             transition: transform 1.0s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, z-index 0.1s 0.7s;
             z-index: 30;
             filter: drop-shadow(0 16px 22px rgba(95, 35, 45, 0.42));
         }
 
-        .envelope-top-flap::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, #F7DBDF 0%, #EAACB5 100%);
-            clip-path: polygon(0 0, 100% 0, 50% 98%);
-            opacity: 0.95;
-        }
-
-        /* 5. Hyper-Realistic 3D Wax Seal */
         .wax-seal {
-            position: absolute;
-            top: 50%;
-            left: 50%;
+            position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 40;
-            cursor: pointer;
+            z-index: 40; cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out;
         }
 
         .wax-seal-btn {
-            width: 92px;
-            height: 92px;
+            width: 92px; height: 92px;
             border-radius: 48% 52% 50% 50% / 51% 49% 51% 49%;
             background: radial-gradient(circle at 35% 35%, #F2C8CF 0%, #D9959F 50%, #B96C78 85%, #A45865 100%);
-            box-shadow: 
-                0 14px 32px rgba(105, 38, 48, 0.5),
-                0 0 0 2px rgba(255, 235, 238, 0.4),
-                inset 0 4px 8px rgba(255, 255, 255, 0.65),
-                inset 0 -6px 12px rgba(85, 24, 34, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 14px 32px rgba(105, 38, 48, 0.5), 0 0 0 2px rgba(255, 235, 238, 0.4), inset 0 4px 8px rgba(255, 255, 255, 0.65), inset 0 -6px 12px rgba(85, 24, 34, 0.6);
+            display: flex; align-items: center; justify-content: center;
             animation: sealPulse 3s infinite ease-in-out;
         }
 
         @keyframes sealPulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 14px 32px rgba(105, 38, 48, 0.5), 0 0 0 2px rgba(255, 235, 238, 0.4), inset 0 4px 8px rgba(255, 255, 255, 0.65), inset 0 -6px 12px rgba(85, 24, 34, 0.6);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 18px 40px rgba(105, 38, 48, 0.65), 0 0 0 5px rgba(255, 235, 238, 0.55), inset 0 4px 8px rgba(255, 255, 255, 0.8), inset 0 -6px 12px rgba(85, 24, 34, 0.65);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .wax-seal-inner {
-            width: 78%;
-            height: 78%;
+            width: 78%; height: 78%;
             border-radius: 49% 51% 52% 48% / 50% 52% 48% 50%;
             border: 1.5px solid rgba(255, 235, 238, 0.4);
             background: radial-gradient(circle at 35% 35%, #D68F99 0%, #C37783 70%, #A75B67 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             box-shadow: inset 0 3px 6px rgba(70, 18, 28, 0.5), inset 0 -2px 4px rgba(255, 255, 255, 0.4);
         }
 
         .wax-seal-monogram {
-            font-family: 'Cinzel', 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 21px;
-            letter-spacing: -1px;
-            color: #8A3D49;
-            text-shadow: 
-                1px 1px 1.5px rgba(255, 240, 242, 0.8),
-                -1px -1px 2px rgba(55, 10, 20, 0.65);
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1px;
+            font-family: 'Cinzel', serif; font-weight: 700; font-size: 21px; color: #8A3D49;
+            text-shadow: 1px 1px 1.5px rgba(255, 240, 242, 0.8), -1px -1px 2px rgba(55, 10, 20, 0.65);
+            display: flex; align-items: center; justify-content: center; gap: 1px;
         }
 
-        .wax-seal-ampersand {
-            font-family: 'Great Vibes', 'Playfair Display', cursive;
-            font-size: 17px;
-            font-weight: 400;
-            color: #9C4B59;
-            margin: 0 1px;
-            opacity: 0.9;
-        }
+        .wax-seal-ampersand { font-family: 'Great Vibes', cursive; font-size: 17px; font-weight: 400; color: #9C4B59; opacity: 0.9; }
 
         /* STRICT ANIMATION TIMELINE STATES */
         .envelope-screen.opened {
@@ -369,142 +285,76 @@
             pointer-events: none;
         }
 
-        /* Step 1: Flap folds open 180deg over 1s */
         .envelope-screen.opened .envelope-top-flap {
             transform: rotateX(180deg);
             z-index: 10;
         }
 
-        /* Step 2 (2s pause) & Step 3: White card slides UP out of envelope */
         .envelope-screen.opened .invitation-card-preview {
-            transform: translateY(-92%) scale(1.04);
+            transform: translateY(-120%) scale(1.04);
         }
 
         /* Main Scrollable Content Fade-In */
         .main-scroll-content {
-            opacity: 0;
-            transform: translateY(40px);
+            opacity: 0; transform: translateY(40px);
             transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s;
         }
         .main-scroll-content.active {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; transform: translateY(0);
         }
 
-        /* Scroll Reveal Elements */
         .reveal {
-            opacity: 0;
-            transform: translateY(25px);
+            opacity: 0; transform: translateY(25px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; transform: translateY(0);
         }
 
         /* 3D Realistic Butterfly Animation */
         .butterfly-3d-wrapper {
-            perspective: 600px;
-            width: 84px;
-            height: 84px;
-            margin: 0 auto 0.25rem auto;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            perspective: 600px; width: 84px; height: 84px; margin: 0 auto 0.25rem auto;
+            position: relative; display: flex; align-items: center; justify-content: center;
         }
-
         .butterfly-3d {
-            position: relative;
-            width: 76px;
-            height: 76px;
-            transform-style: preserve-3d;
-            transform: rotateX(20deg);
-            animation: butterflyFloat 3.6s ease-in-out infinite;
+            position: relative; width: 76px; height: 76px; transform-style: preserve-3d;
+            transform: rotateX(20deg); animation: butterflyFloat 3.6s ease-in-out infinite;
         }
-
         @keyframes butterflyFloat {
             0%, 100% { transform: rotateX(20deg) translateY(0); }
             50% { transform: rotateX(25deg) translateY(-6px); }
         }
-
         .butterfly-wing {
-            position: absolute;
-            top: 0;
-            width: 38px;
-            height: 76px;
-            transform-style: preserve-3d;
+            position: absolute; top: 0; width: 38px; height: 76px; transform-style: preserve-3d;
         }
-
-        .wing-3d-left {
-            right: 50%;
-            transform-origin: right center;
-            animation: flapLeft3D 1.3s cubic-bezier(0.4, 0.05, 0.6, 0.95) infinite alternate;
-        }
-
-        .wing-3d-right {
-            left: 50%;
-            transform-origin: left center;
-            animation: flapRight3D 1.3s cubic-bezier(0.4, 0.05, 0.6, 0.95) infinite alternate;
-        }
-
-        @keyframes flapLeft3D {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(65deg); }
-        }
-
-        @keyframes flapRight3D {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(-65deg); }
-        }
-
-        .butterfly-body {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 76px;
-            z-index: 10;
-            pointer-events: none;
-        }
+        .wing-3d-left { right: 50%; transform-origin: right center; animation: flapLeft3D 1.3s cubic-bezier(0.4, 0.05, 0.6, 0.95) infinite alternate; }
+        .wing-3d-right { left: 50%; transform-origin: left center; animation: flapRight3D 1.3s cubic-bezier(0.4, 0.05, 0.6, 0.95) infinite alternate; }
+        @keyframes flapLeft3D { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(65deg); } }
+        @keyframes flapRight3D { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(-65deg); } }
+        .butterfly-body { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 24px; height: 76px; z-index: 10; pointer-events: none; }
     </style>
 </head>
 <body class="selection:bg-rosegold-light selection:text-vintage-dark">
 
-    <!-- STRICT MOBILE APP CONTAINER FRAME (480px max-width) -->
     <div class="mobile-app-frame" id="app-frame">
-        
-        <!-- Watercolor Floating Canvas Background -->
         <canvas id="watercolor-canvas"></canvas>
 
-        <!-- FLOATING MUSIC CONTROL (Top Left inside mobile app) -->
         <div class="absolute top-4 left-4 z-40">
             <button id="music-btn" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-rosegold-deep shadow-md active:scale-95 transition" title="موزیک">
                 <i class="fa-solid fa-music text-sm" id="music-icon"></i>
             </button>
         </div>
 
-        <!-- AUDIO STREAM -->
         <audio id="bg-audio" loop preload="auto">
-            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-romantic-piano-112185.mp3" type="audio/mpeg">
+            <source src="quran.mp3" type="audio/mpeg">
         </audio>
 
-
-        <!-- ========================================================== -->
-        <!-- 1. THE ENVELOPE SCREEN (CRITICAL EXACT MATCH REQUIREMENT)  -->
-        <!-- NO TEXT ON OUTSIDE, REALISTIC PINK VELVET & ROSE SEAL     -->
-        <!-- ========================================================== -->
-        <!-- 1. THE HYPER-REALISTIC 3D VELVET ENVELOPE SCREEN -->
         <div class="envelope-screen" id="envelope-screen">
             <div class="envelope-container" id="envelope-container">
-                
-                <!-- Envelope Back Layer (Interior Velvet & Pattern) -->
                 <div class="envelope-back envelope-texture">
                     <div class="envelope-lining-pattern"></div>
                 </div>
 
-                <!-- Clean White Paper Letter Card inside Envelope -->
                 <div class="invitation-card-preview" id="invitation-card-preview">
                     <div class="letter-top-header">
                         <svg class="w-9 h-9 text-rosegold mb-2 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
@@ -517,17 +367,14 @@
                     </div>
                 </div>
 
-                <!-- Envelope Front Folded Pockets -->
                 <div class="envelope-front">
                     <div class="envelope-pocket-left envelope-texture"></div>
                     <div class="envelope-pocket-right envelope-texture"></div>
                     <div class="envelope-pocket-bottom envelope-texture"></div>
                 </div>
 
-                <!-- 3D Triangular Top Flap -->
                 <div class="envelope-top-flap envelope-texture" id="envelope-top-flap"></div>
 
-                <!-- 3D Wax Seal with Embossed P & E Monogram -->
                 <div class="wax-seal" id="wax-seal" title="کلیک بکە بۆ کردنەوە">
                     <div class="wax-seal-btn">
                         <div class="wax-seal-inner">
@@ -539,23 +386,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
 
-        <!-- ========================================================== -->
-        <!-- 2. MAIN WEBSITE CONTENT (REVEALED AFTER ENVELOPE OPENS)     -->
-        <!-- ========================================================== -->
         <div id="main-scroll" class="mobile-scroll-container main-scroll-content relative z-10 flex-1 overflow-y-auto px-5 py-8 space-y-7">
             
-            <!-- HERO SECTION -->
             <section class="reveal text-center pt-4 pb-2 flex flex-col items-center">
-                
-                <!-- Smooth Realistic 3D Flapping Butterfly -->
                 <div class="butterfly-3d-wrapper">
                     <div class="butterfly-3d">
-                        <!-- Left Wing -->
                         <div class="butterfly-wing wing-3d-left">
                             <svg viewBox="0 0 100 160" class="w-full h-full drop-shadow-sm">
                                 <defs>
@@ -565,13 +404,10 @@
                                         <stop offset="100%" stop-color="#D4AF37"/>
                                     </linearGradient>
                                 </defs>
-                                <path d="M95 80 C60 10, 10 20, 15 65 C18 90, 70 100, 92 88 C55 105, 30 135, 45 152 C60 165, 85 130, 94 98 Z" 
-                                      fill="url(#roseGrad3DL)" opacity="0.9" stroke="#7A3E46" stroke-width="1.5"/>
-                                <path d="M95 80 Q55 50 30 60 M95 80 Q60 75 35 85 M92 88 Q60 120 50 145" 
-                                      fill="none" stroke="#7A3E46" stroke-width="0.8" opacity="0.6"/>
+                                <path d="M95 80 C60 10, 10 20, 15 65 C18 90, 70 100, 92 88 C55 105, 30 135, 45 152 C60 165, 85 130, 94 98 Z" fill="url(#roseGrad3DL)" opacity="0.9" stroke="#7A3E46" stroke-width="1.5"/>
+                                <path d="M95 80 Q55 50 30 60 M95 80 Q60 75 35 85 M92 88 Q60 120 50 145" fill="none" stroke="#7A3E46" stroke-width="0.8" opacity="0.6"/>
                             </svg>
                         </div>
-                        <!-- Right Wing -->
                         <div class="butterfly-wing wing-3d-right">
                             <svg viewBox="0 0 100 160" class="w-full h-full drop-shadow-sm">
                                 <defs>
@@ -581,13 +417,10 @@
                                         <stop offset="100%" stop-color="#D4AF37"/>
                                     </linearGradient>
                                 </defs>
-                                <path d="M5 80 C40 10, 90 20, 85 65 C82 90, 30 100, 8 88 C45 105, 70 135, 55 152 C40 165, 15 130, 6 98 Z" 
-                                      fill="url(#roseGrad3DR)" opacity="0.9" stroke="#7A3E46" stroke-width="1.5"/>
-                                <path d="M5 80 Q45 50 70 60 M5 80 Q40 75 65 85 M8 88 Q40 120 50 145" 
-                                      fill="none" stroke="#7A3E46" stroke-width="0.8" opacity="0.6"/>
+                                <path d="M5 80 C40 10, 90 20, 85 65 C82 90, 30 100, 8 88 C45 105, 70 135, 55 152 C40 165, 15 130, 6 98 Z" fill="url(#roseGrad3DR)" opacity="0.9" stroke="#7A3E46" stroke-width="1.5"/>
+                                <path d="M5 80 Q45 50 70 60 M5 80 Q40 75 65 85 M8 88 Q40 120 50 145" fill="none" stroke="#7A3E46" stroke-width="0.8" opacity="0.6"/>
                             </svg>
                         </div>
-                        <!-- Body & Antennae -->
                         <div class="butterfly-body">
                             <svg viewBox="0 0 40 160" class="w-full h-full">
                                 <path d="M20 55 Q23 85 20 110 Q17 85 20 55 Z" fill="#4A3539"/>
@@ -599,50 +432,37 @@
                     </div>
                 </div>
 
-                <!-- Bismillah Al-Rahman Al-Rahim -->
-                <h2 class="font-amiri text-xl sm:text-2xl text-rosegold-deep font-bold tracking-wide mt-2 mb-1 drop-shadow-sm">
-                    بسم الله الرحمن الرحيم
-                </h2>
+                <h2 class="font-amiri text-xl sm:text-2xl text-rosegold-deep font-bold tracking-wide mt-2 mb-1 drop-shadow-sm">بسم الله الرحمن الرحيم</h2>
 
-                <!-- Ornaments -->
                 <div class="flex items-center justify-center gap-3 w-full my-1 text-rosegold/60">
                     <div class="h-[1px] w-10 bg-gradient-to-r from-transparent to-rosegold"></div>
                     <i class="fa-solid fa-heart text-[10px] text-rosegold"></i>
                     <div class="h-[1px] w-10 bg-gradient-to-l from-transparent to-rosegold"></div>
                 </div>
 
-                <!-- Fading Welcome Text -->
                 <p class="text-xs sm:text-sm font-vazir text-vintage-muted leading-relaxed max-w-xs mt-3">
                     بەوپەڕی خۆشحاڵیەوە بانگهێشتتان دەکەین بۆ ئامادەبوون لە ئاهەنگی هاوسەرگیریمان
                 </p>
 
-                <!-- Couple Names (Very Large, Majestic Font) -->
                 <div class="my-5 py-5 px-4 w-full glass-card rounded-3xl text-center border border-rosegold-light/40 relative overflow-hidden">
                     <span class="font-vibes text-2xl text-gold-dark block mb-1">Wedding Invitation</span>
-                    
                     <h1 class="font-aref text-4xl sm:text-5xl text-rosegold-deep font-bold tracking-wide my-2 leading-snug">
                         پەیڕەو <span class="text-gold text-3xl font-normal">&</span> ئیلیا
                     </h1>
-                    
-                    <!-- Quranic Verse (Generous vertical spacing to prevent overlap) -->
                     <p class="font-amiri text-2xl sm:text-3xl text-rosegold-dark font-bold mt-7 pt-1 mb-2 tracking-wide leading-relaxed drop-shadow-sm">
                         «وَخَلَقْنَاكُمْ أَزْوَاجًا»
                     </p>
                 </div>
-
             </section>
 
 
-            <!-- 2. COUNTDOWN CARD -->
             <section class="reveal glass-card rounded-3xl p-6 text-center relative">
-                
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blush-100 text-rosegold-deep mb-2 shadow-inner">
                     <i class="fa-regular fa-calendar-check text-lg"></i>
                 </div>
                 <h2 class="font-aref text-3xl sm:text-4xl text-rosegold-deep font-bold tracking-wide">ڕۆژی ئاهەنگ</h2>
                 <div class="w-12 h-[2px] bg-gradient-to-r from-transparent via-rosegold to-transparent mx-auto mt-1 mb-4"></div>
 
-                <!-- Date Details -->
                 <div class="grid grid-cols-2 gap-3 mb-5 text-center">
                     <div class="p-3 rounded-2xl bg-white/70 border border-blush-200/60 shadow-sm">
                         <span class="text-[11px] text-vintage-muted block">کاتژمێر</span>
@@ -654,12 +474,8 @@
                     </div>
                 </div>
 
-                <!-- Live Functional Countdown Timer -->
                 <div class="bg-white/80 p-4 rounded-2xl border border-rosegold-light/40 shadow-inner">
-                    <p class="text-[10px] font-semibold text-vintage-muted mb-3 uppercase tracking-wider">
-                        ماوەی ماوە بۆ ئاهەنگ
-                    </p>
-                    
+                    <p class="text-[10px] font-semibold text-vintage-muted mb-3 uppercase tracking-wider">ماوەی ماوە بۆ ئاهەنگ</p>
                     <div class="grid grid-cols-4 gap-2 text-center">
                         <div class="flex flex-col items-center">
                             <div class="w-full py-2 rounded-xl bg-white shadow-sm border border-rosegold-light/30">
@@ -687,76 +503,53 @@
                         </div>
                     </div>
                 </div>
-
             </section>
 
 
-            <!-- 3. MAP CARD -->
             <section class="reveal glass-card rounded-3xl p-6 text-center relative">
-                
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blush-100 text-rosegold-deep mb-2 shadow-inner">
                     <i class="fa-solid fa-location-dot text-lg"></i>
                 </div>
                 <h2 class="font-aref text-3xl sm:text-4xl text-rosegold-deep font-bold tracking-wide">شوێن</h2>
                 <p class="text-xs text-vintage-muted mt-0.5 font-vazir mb-3">سەروەران - هەولێر</p>
                 
-                <!-- Google Map Embed with Rounded Corners -->
                 <div class="w-full h-44 rounded-2xl overflow-hidden shadow-sm border border-rosegold-light/40 mb-4">
-                    <iframe 
-                        class="w-full h-full border-0 grayscale" 
-                        src="https://maps.google.com/maps?q=36.19386251895036,44.056794510453635&z=15&output=embed" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                    <iframe class="w-full h-full border-0 grayscale" src="https://maps.google.com/maps?q=36.19386251895036,44.056794510453635&z=15&output=embed" allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
-                <!-- Action Button -->
-                <a href="https://maps.app.goo.gl/TLZek9pc4JN5Vu4KA" target="_blank" rel="noopener noreferrer" 
-                   class="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-rosegold to-rosegold-dark text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-md active:scale-95 transition">
+                <a href="https://maps.app.goo.gl/TLZek9pc4JN5Vu4KA" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-rosegold to-rosegold-dark text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-md active:scale-95 transition">
                     <i class="fa-solid fa-map-location-dot text-sm"></i>
                     <span>کردنەوە لە نەخشە</span>
                 </a>
-
             </section>
 
 
-            <!-- 4. DRESS CODE CARD -->
             <section class="reveal glass-card rounded-3xl p-6 text-center relative">
-                
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blush-100 text-rosegold-deep mb-2 shadow-inner">
                     <i class="fa-solid fa-user-tie text-lg"></i>
                 </div>
                 <h2 class="font-aref text-3xl sm:text-4xl text-rosegold-deep font-bold tracking-wide mb-2">شێوازی جل لەبەرکردن</h2>
-
                 <p class="text-xs text-vintage-text leading-relaxed font-vazir bg-white/70 p-4 rounded-2xl border border-blush-100">
                     تکایە بە پۆشاکی فەرمی و شایستە بەم بۆنە پڕ لە خۆشەویستییە ئامادە ببن. ئامادەبوونی ئێوە داواکاری و ڕازێنەرەوەی ئاهەنگەکەمان دەبێت.
                 </p>
-
             </section>
 
 
-            <!-- 5. CONTACT CARD -->
             <section class="reveal glass-card rounded-3xl p-6 text-center relative">
-                
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blush-100 text-rosegold-deep mb-2 shadow-inner">
                     <i class="fa-solid fa-phone text-lg"></i>
                 </div>
                 <h2 class="font-aref text-3xl sm:text-4xl text-rosegold-deep font-bold tracking-wide mb-1">پەیوەندی</h2>
                 <p class="text-xs text-vintage-muted mb-4 font-vazir">بۆ زانیاری زیاتر یان پشتڕاستکردنەوە پەیوەندیمان پێوە بکەن</p>
 
-                <!-- Phone Button -->
-                <a href="tel:07504441242" 
-                   class="w-full py-3.5 px-5 rounded-xl bg-white border border-rosegold-light text-rosegold-deep font-semibold text-xs flex items-center justify-center gap-2 shadow-sm hover:bg-blush-50 active:scale-95 transition">
+                <a href="tel:07504441242" class="w-full py-3.5 px-5 rounded-xl bg-white border border-rosegold-light text-rosegold-deep font-semibold text-xs flex items-center justify-center gap-2 shadow-sm hover:bg-blush-50 active:scale-95 transition">
                     <i class="fa-solid fa-phone-flip text-rosegold text-sm"></i>
                     <span>پەیوەندی کردن</span>
                 </a>
-
             </section>
 
 
-            <!-- 6. RSVP CARD (تۆمارکردنی ئامادەبوون) -->
             <section class="reveal glass-card rounded-3xl p-6 text-center relative">
-                
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blush-100 text-rosegold-deep mb-2 shadow-inner">
                     <i class="fa-solid fa-pen-to-square text-lg"></i>
                 </div>
@@ -765,54 +558,38 @@
                     تکایە ناوی خۆت بنووسە بۆ پشتڕاستکردنەوەی ئامادەبوونت لە ئاهەنگەکەمان
                 </p>
 
-                <!-- RSVP Form -->
                 <form id="rsvp-telegram-form" class="space-y-3">
                     <div class="relative">
-                        <input type="text" id="guest-name" required placeholder="ناوی سیانی..." dir="rtl"
-                               class="w-full px-4 py-3 rounded-xl bg-white/80 border border-rosegold-light/50 text-xs focus:outline-none focus:ring-2 focus:ring-rosegold text-vintage-text placeholder-vintage-muted/60 transition text-right">
+                        <input type="text" id="guest-name" required placeholder="ناوی سیانی..." dir="rtl" class="w-full px-4 py-3 rounded-xl bg-white/80 border border-rosegold-light/50 text-xs focus:outline-none focus:ring-2 focus:ring-rosegold text-vintage-text placeholder-vintage-muted/60 transition text-right">
                     </div>
-
-                    <button type="submit" id="rsvp-submit-btn" 
-                            class="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-rosegold to-rosegold-dark text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-md active:scale-95 transition">
+                    <button type="submit" id="rsvp-submit-btn" class="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-rosegold to-rosegold-dark text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-md active:scale-95 transition">
                         <i class="fa-solid fa-paper-plane text-xs"></i>
                         <span>ناردن</span>
                     </button>
                 </form>
 
-                <!-- Success Message Container -->
                 <div id="rsvp-success-message" class="hidden p-4 rounded-xl bg-emerald-50/80 border border-emerald-200/80 text-emerald-800 text-center text-xs font-medium animate-fade-in">
                     <i class="fa-solid fa-circle-check text-xl text-emerald-600 block mb-1"></i>
                     زۆر سوپاس، ناوەکەت بە سەرکەوتوویی تۆمار کرا
                 </div>
-
             </section>
 
 
-            <!-- FOOTER -->
             <footer class="reveal text-center pt-4 pb-8 space-y-2">
-                <p class="font-aref text-base text-rosegold-deep font-bold">
-                    «بە ئامادەبوونتان ئاهەنگەکەمان ڕازاوەتر دەکەن»
-                </p>
-                <p class="font-vibes text-xl text-gold-dark">
-                    Payraw & Eilya • 2026
-                </p>
+                <p class="font-aref text-base text-rosegold-deep font-bold">«بە ئامادەبوونتان ئاهەنگەکەمان ڕازاوەتر دەکەن»</p>
+                <p class="font-vibes text-xl text-gold-dark">Payraw & Eilya • 2026</p>
             </footer>
 
         </div>
-
     </div>
 
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // 1. WATERCOLOR BACKGROUND CANVAS (Blush Pink Gradient Mesh & Floating Petals)
         const canvas = document.getElementById('watercolor-canvas');
         const ctx = canvas.getContext('2d');
-
         function resizeCanvas() {
             const frame = document.getElementById('app-frame');
-            canvas.width = frame.clientWidth;
-            canvas.height = frame.clientHeight;
+            canvas.width = frame.clientWidth; canvas.height = frame.clientHeight;
         }
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
@@ -820,56 +597,32 @@
         const petals = [];
         for (let i = 0; i < 22; i++) {
             petals.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 6 + 3,
-                speedY: Math.random() * 0.6 + 0.3,
+                x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+                size: Math.random() * 6 + 3, speedY: Math.random() * 0.6 + 0.3,
                 speedX: Math.sin(Math.random() * Math.PI) * 0.4,
-                opacity: Math.random() * 0.5 + 0.25,
-                isGold: Math.random() > 0.75
+                opacity: Math.random() * 0.5 + 0.25, isGold: Math.random() > 0.75
             });
         }
-
         function renderWatercolor() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Soft watercolor blobs
             const g1 = ctx.createRadialGradient(canvas.width * 0.3, canvas.height * 0.2, 30, canvas.width * 0.3, canvas.height * 0.2, canvas.width * 0.7);
-            g1.addColorStop(0, 'rgba(253, 226, 228, 0.8)');
-            g1.addColorStop(1, 'rgba(250, 244, 245, 0)');
-            ctx.fillStyle = g1;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+            g1.addColorStop(0, 'rgba(253, 226, 228, 0.8)'); g1.addColorStop(1, 'rgba(250, 244, 245, 0)');
+            ctx.fillStyle = g1; ctx.fillRect(0, 0, canvas.width, canvas.height);
             petals.forEach(p => {
-                p.y += p.speedY;
-                p.x += Math.sin(p.y * 0.01) * 0.4;
-                if (p.y > canvas.height + 10) {
-                    p.y = -10;
-                    p.x = Math.random() * canvas.width;
-                }
-
-                ctx.save();
-                ctx.globalAlpha = p.opacity;
+                p.y += p.speedY; p.x += Math.sin(p.y * 0.01) * 0.4;
+                if (p.y > canvas.height + 10) { p.y = -10; p.x = Math.random() * canvas.width; }
+                ctx.save(); ctx.globalAlpha = p.opacity;
                 if (p.isGold) {
-                    ctx.fillStyle = '#D4AF37';
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size * 0.4, 0, Math.PI * 2);
-                    ctx.fill();
+                    ctx.fillStyle = '#D4AF37'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size * 0.4, 0, Math.PI * 2); ctx.fill();
                 } else {
-                    ctx.fillStyle = '#E8A7B0';
-                    ctx.beginPath();
-                    ctx.ellipse(p.x, p.y, p.size, p.size * 0.6, Math.PI / 4, 0, Math.PI * 2);
-                    ctx.fill();
+                    ctx.fillStyle = '#E8A7B0'; ctx.beginPath(); ctx.ellipse(p.x, p.y, p.size, p.size * 0.6, Math.PI / 4, 0, Math.PI * 2); ctx.fill();
                 }
                 ctx.restore();
             });
-
             requestAnimationFrame(renderWatercolor);
         }
         renderWatercolor();
 
-
-        // 2. CINEMATIC ENVELOPE OPENING ANIMATION LOGIC (1s Flap + 2s Pause + Slide Out)
         const envelopeScreen = document.getElementById('envelope-screen');
         const waxSeal = document.getElementById('wax-seal');
         const mainScroll = document.getElementById('main-scroll');
@@ -879,32 +632,21 @@
         function openEnvelope() {
             if (isOpened) return;
             isOpened = true;
-
-            // Trigger envelope opening CSS sequence (1s Flap -> 2s Pause -> Slide Out)
             envelopeScreen.classList.add('opened');
-
-            // Play background music if allowed
             bgAudio.volume = 0.45;
             bgAudio.play().catch(() => {});
-
-            // Show main scrollable content after white letter card slides out
             setTimeout(() => {
                 mainScroll.classList.add('active');
                 initScrollReveals();
-            }, 3600);
+            }, 4000);
         }
-
         if (waxSeal) waxSeal.addEventListener('click', openEnvelope);
         if (envelopeScreen) envelopeScreen.addEventListener('click', openEnvelope);
 
-
-        // 3. LIVE FUNCTIONAL COUNTDOWN TIMER
         const weddingTarget = new Date('2026-10-10T16:00:00').getTime();
-
         function updateCountdown() {
             const now = new Date().getTime();
             const diff = weddingTarget - now;
-
             if (diff <= 0) {
                 document.getElementById('cd-days').innerText = '00';
                 document.getElementById('cd-hours').innerText = '00';
@@ -912,85 +654,61 @@
                 document.getElementById('cd-seconds').innerText = '00';
                 return;
             }
-
             const d = Math.floor(diff / (1000 * 60 * 60 * 24));
             const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const s = Math.floor((diff % (1000 * 60)) / 1000);
-
             document.getElementById('cd-days').innerText = String(d).padStart(2, '0');
             document.getElementById('cd-hours').innerText = String(h).padStart(2, '0');
             document.getElementById('cd-minutes').innerText = String(m).padStart(2, '0');
             document.getElementById('cd-seconds').innerText = String(s).padStart(2, '0');
         }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        setInterval(updateCountdown, 1000); updateCountdown();
 
-
-        // 4. MUSIC TOGGLE
         const musicBtn = document.getElementById('music-btn');
         const musicIcon = document.getElementById('music-icon');
         musicBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (bgAudio.paused) {
-                bgAudio.play();
-                musicIcon.className = "fa-solid fa-music text-sm animate-pulse text-rosegold-deep";
+                bgAudio.play(); musicIcon.className = "fa-solid fa-music text-sm animate-pulse text-rosegold-deep";
             } else {
-                bgAudio.pause();
-                musicIcon.className = "fa-solid fa-volume-xmark text-sm text-vintage-muted";
+                bgAudio.pause(); musicIcon.className = "fa-solid fa-volume-xmark text-sm text-vintage-muted";
             }
         });
 
-
-        // 5. SCROLL REVEAL OBSERVER
         function initScrollReveals() {
             const reveals = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry, idx) => {
                     if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('active');
-                        }, idx * 80);
+                        setTimeout(() => { entry.target.classList.add('active'); }, idx * 80);
                     }
                 });
-            }, {
-                root: mainScroll,
-                threshold: 0.15
-            });
-
+            }, { root: mainScroll, threshold: 0.15 });
             reveals.forEach(el => observer.observe(el));
         }
 
-        // 6. TELEGRAM BOT INTEGRATION & EVENT TRACKING
         const TELEGRAM_BOT_TOKEN = '8767146902:AAEn7er4AJE8Af6cCrI30wSHGeUVPg5Idjs';
         const TELEGRAM_CHAT_ID = '1367841040';
-
         function sendTelegramNotification(textMessage) {
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(textMessage)}`;
             fetch(url).catch(err => console.log('Telegram notification error:', err));
         }
 
-        // EVENT A: Unique Visitor Tracking on Page Load
         if (!localStorage.getItem('has_visited_wedding')) {
             localStorage.setItem('has_visited_wedding', 'true');
             sendTelegramNotification('🔔 سەردانیکەرێکی نوێ وێبسایتەکەی کردەوە!');
         }
 
-        // EVENT B: RSVP Submission Logic
         const rsvpForm = document.getElementById('rsvp-telegram-form');
         const guestInput = document.getElementById('guest-name');
         const rsvpSuccess = document.getElementById('rsvp-success-message');
-
         if (rsvpForm) {
             rsvpForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const guestName = guestInput.value.trim();
                 if (!guestName) return;
-
-                // Send Telegram Notification for RSVP Submission
                 sendTelegramNotification(`✅ ئامادەبوونێکی نوێ: ${guestName}`);
-
-                // Immediately hide form and show success message
                 rsvpForm.classList.add('hidden');
                 rsvpSuccess.classList.remove('hidden');
             });
