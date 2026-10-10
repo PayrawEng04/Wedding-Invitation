@@ -504,6 +504,21 @@
                     </div>
                 </div>
             </section>
+            
+            <!-- نامە تایبەتەکە -->
+<div id="custom-alert" class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity duration-300">
+    <div class="glass-card p-6 rounded-3xl text-center max-w-sm w-[80%] border border-rosegold-light shadow-2xl transform scale-95 transition-transform duration-300" id="custom-alert-box">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blush-100 text-rosegold-deep mb-3 shadow-inner">
+            <i class="fa-solid fa-pen-to-square text-2xl"></i>
+        </div>
+        <!-- لێرەدا فۆنتەکەمان گەورە کردووە (text-lg) -->
+        <p class="font-vazir text-lg font-bold text-vintage-text mb-6">تکایە ناوت تۆماربکە</p>
+        <button onclick="closeCustomAlert()" class="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-rosegold to-rosegold-dark text-white font-semibold text-sm shadow-md active:scale-95 transition">
+            باشە
+        </button>
+    </div>
+</div>
+
 
 
             <section class="reveal glass-card rounded-3xl p-6 text-center relative">
@@ -636,8 +651,15 @@
     bgAudio.volume = 0.45;
     bgAudio.play().catch(() => {});
     
+    // پیشاندانی نامە تایبەتەکە دوای ٥ چرکە
     setTimeout(() => {
-        alert("تکایە ناوت تۆماربکە");
+        const customAlertBox = document.getElementById('custom-alert');
+        const customAlertContent = document.getElementById('custom-alert-box');
+        customAlertBox.classList.remove('hidden');
+        setTimeout(() => {
+            customAlertContent.classList.remove('scale-95');
+            customAlertContent.classList.add('scale-100');
+        }, 10);
     }, 5000); 
 
     setTimeout(() => {
@@ -645,6 +667,13 @@
         initScrollReveals();
     }, 4000);
 }
+
+// فەنکشنی داخستنی نامەکە کاتێک پەنجە بە "باشە" دادەنرێت
+function closeCustomAlert() {
+    const customAlertBox = document.getElementById('custom-alert');
+    customAlertBox.classList.add('hidden');
+}
+
 
         if (waxSeal) waxSeal.addEventListener('click', openEnvelope);
         if (envelopeScreen) envelopeScreen.addEventListener('click', openEnvelope);
