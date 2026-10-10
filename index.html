@@ -630,13 +630,13 @@
         let isOpened = false;
 
         function openEnvelope() {
-            
-                if (isOpened) return;
+    if (isOpened) return;
     isOpened = true;
     envelopeScreen.classList.add('opened');
     bgAudio.volume = 0.45;
     bgAudio.play().catch(() => {});
-‏    setTimeout(() => {
+    
+    setTimeout(() => {
         alert("تکایە ناوت تۆماربکە");
     }, 5000); 
 
@@ -644,9 +644,8 @@
         mainScroll.classList.add('active');
         initScrollReveals();
     }, 4000);
-            
-            
-        }
+}
+
         if (waxSeal) waxSeal.addEventListener('click', openEnvelope);
         if (envelopeScreen) envelopeScreen.addEventListener('click', openEnvelope);
 
